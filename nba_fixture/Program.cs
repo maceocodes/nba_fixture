@@ -13,13 +13,14 @@ namespace nba_fixture
         {
             ////Import and parse CSV data
 
-            using (var reader = new StreamReader(@"../../nbaData/nba_dataset.csv"))
+            using (StreamReader sr = new StreamReader(@"../../nbaData/nba_dataset.csv"))
             {
+                string headerLine = sr.ReadLine();
                 List<string> game = new List<string>();
-                while (!reader.EndOfStream)
+                while (!sr.EndOfStream)
                 {
-                    var line = reader.ReadLine();
-                    var data = line.Split(',');
+                    var line = sr.ReadLine();
+                    List<string> myList = game.Split(',').ToList();
                     game.Add(line);
                 }
 
