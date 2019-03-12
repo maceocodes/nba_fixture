@@ -20,7 +20,7 @@ namespace nba_fixture
                 {
                     var line = reader.ReadLine();
                     var data = line.Split(',');
-                    game.Add(line);
+                    game.AddRange(data);
                 }
 
                 for (int i = 0; i < game.Count; i++)
@@ -29,11 +29,6 @@ namespace nba_fixture
                 }
                 Console.ReadLine();
             }
-
-
-
-
-
 
         }
     }
