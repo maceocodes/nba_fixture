@@ -13,7 +13,7 @@ namespace nba_fixture
         {
             ////Import and parse CSV data
 
-            using (var reader = new StreamReader(@"../../nbaData/nba_dataset.csv"))
+            using (var reader = new StreamReader("C:/Users/246600/Desktop/CodeLou/C#/nba_fixture/nba_fixture/nbaData/nba_dataset.csv"))
             {
                 List<string> game = new List<string>();
                 while (!reader.EndOfStream)
