@@ -12,6 +12,7 @@ namespace nba_fixture
         public string HomeTeam { get; set; }
         public string AwayTeam { get; set; }
         public string Result { get; set; }
+        public string Stadium { get; set; }
         
         public int Game_Number { get; set;}
 
