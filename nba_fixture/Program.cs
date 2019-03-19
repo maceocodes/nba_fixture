@@ -13,20 +13,33 @@ namespace nba_fixture
         {
             ////Import and parse CSV data
 
-            using (var reader = new StreamReader("C:/Users/246600/Desktop/CodeLou/C#/nba_fixture/nba_fixture/nbaData/nba_dataset.csv"))
+            
+            using (var reader = new StreamReader(@"../../nbaData/nba_dataset.csv"))
             {
-                List<string> game = new List<string>();
+                List<Matchup> game = new List<Matchup>();
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
                     var data = line.Split(',');
-                    game.AddRange(data);
-                }
 
+                    var matchUp = new Matchup
+                    {
+                        Date = data[0],
+                        HomeTeam = data[2],
+                        AwayTeam = data[3]
+                    };
+
+                    game.Add(matchUp);
+
+                }
                 for (int i = 0; i < game.Count; i++)
                 {
-                    Console.WriteLine(game[i]);
+                    var game_data = game[i];
+                    Console.WriteLine(game_data.Date + " " + game_data.HomeTeam+"  VS  "+ game_data.AwayTeam);
                 }
+
+                Console.WriteLine("Type a number to select a matchup");
+                var matchup = Console.ReadLine();
                 Console.ReadLine();
             }
 
