@@ -13,12 +13,14 @@ namespace nba_fixture
         {
             ////Import and parse CSV data
 
-            
+
             using (var reader = new StreamReader(@"../../nbaData/nba_dataset.csv"))
+             
             {
                 List<Matchup> game = new List<Matchup>();
                 while (!reader.EndOfStream)
                 {
+                    reader.Columns.Add("newRow", typeof(System.Int32));
                     var line = reader.ReadLine();
                     var data = line.Split(',');
 
@@ -26,7 +28,7 @@ namespace nba_fixture
                     {
                         Date = data[0],
                         HomeTeam = data[2],
-                        AwayTeam = data[3]
+                        AwayTeam = data[3],
                     };
 
                     game.Add(matchUp);
@@ -35,7 +37,7 @@ namespace nba_fixture
                 for (int i = 0; i < game.Count; i++)
                 {
                     var game_data = game[i];
-                    Console.WriteLine(game_data.Date + " " + game_data.HomeTeam+"  VS  "+ game_data.AwayTeam);
+                    Console.WriteLine(game_data.Date + " " + game_data.HomeTeam + "  VS  " + game_data.AwayTeam + " " + game_data.Stadium);
                 }
 
                 Console.WriteLine("Type a number to select a matchup");
