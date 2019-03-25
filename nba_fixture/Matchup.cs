@@ -15,6 +15,7 @@ namespace nba_fixture
         public string Result { get; set; }
 
         public int ID { get; set; }
+        
 
     }
 }
