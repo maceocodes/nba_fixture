@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Configuration;
 
 namespace nba_fixture
 {
@@ -11,17 +12,49 @@ namespace nba_fixture
     {
         static void Main(string[] args)
         {
+
             Filehandler test = new Filehandler();
             List<Matchup> matchups = test.ReadMatches();
-            matchups.First().Result="test";     
-            test.WriteGameResults(matchups);
-
-            Filehandler id = new Filehandler();
-            List<Matchup> matchups02 = id.ReadMatches();
-            foreach (Matchup in matchups02)
+            foreach (var game in matchups)
             {
-                Console.WriteLine(ID++);
+                game.printMatchups();
             }
+            Console.WriteLine("Type a number corresponding to the matchup you want to select and hit enter to edit");
+
+            var matchupSelection = Console.ReadLine();
+            int gameID;
+            if (Int32.TryParse(matchupSelection, out gameID) && gameID <= 78 ) 
+            {
+                for (int i = 0; i < matchups.Count; i++)
+                {
+                    Console.Write(matchups[gameID]);
+                }
+
+            }
+            else Console.WriteLine("Selection must be a number");
+            matchupSelection = Console.ReadLine();
+            Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Filehandler test = new Filehandler();
+            //List<Matchup> matchups = test.ReadMatches();
+            //matchups.First().Result="test";
+            //test.WriteGameResults(matchups);
+
+
+
+
 
 
 
