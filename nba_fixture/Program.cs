@@ -44,6 +44,7 @@ namespace nba_fixture
                         matchup.Result = userResultInput;
                         matchup.printMatchup();
                         execute.WriteGameResults(matchups);
+                        Console.WriteLine("Entry saved successfully");
 
                         break;
 
