@@ -13,7 +13,7 @@ namespace nba_fixture
         public List<Matchup> ReadMatches()
         {
             List<Matchup> game = new List<Matchup>();
-            using (var reader = new StreamReader(@"../../nbaData/nba_datasetTEST.csv"))
+            using (var reader = new StreamReader(@"../../nbaData/nbaResults_datasetTEST.csv"))
             {
                 reader.ReadLine();
                 while (!reader.EndOfStream)
@@ -41,15 +41,15 @@ namespace nba_fixture
             return game;
         }
 
-        public void WriteGameResults(List<Matchup> MatchupResults)
+        public void WriteGameResults(List<Matchup> MatchupResults) //Writes and saves data back to the database
         {
-            string csvfile = "gameID, Date, Home, Away, Result \n";
+            string csvfile = "gameID, Date, Home, Away, Result \n"; 
             foreach (Matchup game in MatchupResults)
             {
                 csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Result + "\n";
             }
 
-            using (var writer = new StreamWriter(@"../../nbaData/nbaResults_datasetTEST.csv"))
+            using (var writer = new StreamWriter(@"../../nbaData/nbaResults_datasetTEST.csv")) //Writes the data to a new file
             {
                 writer.Write(csvfile);
             }  
