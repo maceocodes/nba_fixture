@@ -17,7 +17,7 @@ namespace nba_fixture
             List<Matchup> matchups = execute.ReadMatches();
             foreach (var game in matchups)
             {
-                game.printMatchups();
+                game.printMatchup();
             }
             Console.WriteLine("Type a number corresponding to the matchup you want to select and hit enter to edit");
             
@@ -38,11 +38,21 @@ namespace nba_fixture
                     if (matchup.ID == gameIDParsed)
                     {
                         notInList = false;
-                        matchup.printMatchups();
+                        matchup.printMatchup();
                         Console.WriteLine("Who's gonna win this game?");
-                        string userResultChoice = Console.ReadLine();
-                        matchups.().Result = userResultChoice;
-                        
+                        var userResultInput = Console.ReadLine();
+                        matchup.Result = userResultInput;
+                        //write to file
+                        matchup.printMatchup();
+                        execute.WriteGameResults(matchups);
+
+
+
+
+                        break;
+                       
+
+
                     }
                     else
                     {

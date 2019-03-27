@@ -43,13 +43,13 @@ namespace nba_fixture
 
         public void WriteGameResults(List<Matchup> MatchupResults)
         {
-            string csvfile = "";
+            string csvfile = "gameID, Date, Home, Away, Result \n";
             foreach (Matchup game in MatchupResults)
             {
-                csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Stadium + "\n";
+                csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Result + "\n";
             }
 
-            using (var writer = new StreamWriter(@"../../nbaData/nba_datasetTEST.csv"))
+            using (var writer = new StreamWriter(@"../../nbaData/nbaResults_datasetTEST.csv"))
             {
                 writer.Write(csvfile);
             }  

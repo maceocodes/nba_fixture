@@ -18,14 +18,13 @@ namespace nba_fixture
         public int ID { get; set; }
         
 
-        public void printMatchups()
+        public void printMatchup()
         {
             var matchups = ID.ToString() + " - " + Date + "  " + HomeTeam + "  @  " + AwayTeam + "  " + Result + "\n";
             Console.WriteLine(matchups);
         }
 
-       
-            
+
 
 
     }
