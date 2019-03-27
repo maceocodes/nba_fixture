@@ -24,6 +24,9 @@ namespace nba_fixture
             Console.WriteLine(matchups);
         }
 
+       
+            
+
 
 
 

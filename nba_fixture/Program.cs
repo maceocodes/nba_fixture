@@ -18,21 +18,43 @@ namespace nba_fixture
             foreach (var game in matchups)
             {
                 game.printMatchups();
+                
             }
             Console.WriteLine("Type a number corresponding to the matchup you want to select and hit enter to edit");
+            
 
-            var matchupSelection = Console.ReadLine();
-            int gameID;
-            if (Int32.TryParse(matchupSelection, out gameID) && gameID <= 78 ) 
+            bool notAnInt = true;
+            bool notInList = true;
+            while (notAnInt || notInList)
             {
-                for (int i = 0; i < matchups.Count; i++)
+                var userSelection = Console.ReadLine();
+
+                int gameIDParsed;
+                notAnInt = !int.TryParse(userSelection, out gameIDParsed);
+                if (notAnInt)
                 {
-                    Console.Write(matchups[gameID]);
+                    Console.WriteLine("Selection should be an integer");
                 }
 
+                foreach (var matchup in matchups)
+                {
+                    if (matchup.ID == gameIDParsed)
+                    {
+                        notInList = false;
+                        break;
+                    }
+                    else
+                    {
+                        notInList = true;                     
+                    }
+                }
+
+
+                if (notInList)
+                { Console.WriteLine("Input is not a matchup in the list"); }
+
+
             }
-            else Console.WriteLine("Selection must be a number");
-            matchupSelection = Console.ReadLine();
             Console.ReadLine();
 
 
