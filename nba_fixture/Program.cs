@@ -13,24 +13,21 @@ namespace nba_fixture
         static void Main(string[] args)
         {
 
-            Filehandler test = new Filehandler();
-            List<Matchup> matchups = test.ReadMatches();
+            Filehandler execute = new Filehandler();
+            List<Matchup> matchups = execute.ReadMatches();
             foreach (var game in matchups)
             {
                 game.printMatchups();
-                
             }
             Console.WriteLine("Type a number corresponding to the matchup you want to select and hit enter to edit");
             
-
+            int gameIDParsed;
             bool notAnInt = true;
             bool notInList = true;
             while (notAnInt || notInList)
             {
-                var userSelection = Console.ReadLine();
-
-                int gameIDParsed;
-                notAnInt = !int.TryParse(userSelection, out gameIDParsed);
+                var userInput = Console.ReadLine();
+                notAnInt = !int.TryParse(userInput, out gameIDParsed);
                 if (notAnInt)
                 {
                     Console.WriteLine("Selection should be an integer");
@@ -41,21 +38,48 @@ namespace nba_fixture
                     if (matchup.ID == gameIDParsed)
                     {
                         notInList = false;
+                        matchup.printMatchups();
                         break;
                     }
                     else
                     {
-                        notInList = true;                     
+                        notInList = true;
                     }
                 }
-
 
                 if (notInList)
                 { Console.WriteLine("Input is not a matchup in the list"); }
 
 
             }
+
+            
+
             Console.ReadLine();
+
+
+
+
+            
+            
+
+
+
+
+
+
+
+            //if (Int32.TryParse(gameSelection, out gameID) && gameID <= 78 ) 
+            //{
+            //    for (int i = 0; i < matchups.Count; i++)
+            //    {
+            //        Console.Write(matchups[gameID]);
+            //    }
+
+            //}
+            //else Console.WriteLine("Selection must be a number");
+            //gameSelection = Console.ReadLine();
+            //Console.ReadLine();
 
 
 
