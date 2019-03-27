@@ -39,7 +39,10 @@ namespace nba_fixture
                     {
                         notInList = false;
                         matchup.printMatchups();
-                        break;
+                        Console.WriteLine("Who's gonna win this game?");
+                        string userResultChoice = Console.ReadLine();
+                        matchups.().Result = userResultChoice;
+                        
                     }
                     else
                     {

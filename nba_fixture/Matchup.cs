@@ -20,7 +20,7 @@ namespace nba_fixture
 
         public void printMatchups()
         {
-            var matchups = ID.ToString() + "," + Date + "," + HomeTeam + "," + AwayTeam + "," + Stadium + "," + Result + "\n";
+            var matchups = ID.ToString() + " - " + Date + "  " + HomeTeam + "  @  " + AwayTeam + "  " + Result + "\n";
             Console.WriteLine(matchups);
         }
 

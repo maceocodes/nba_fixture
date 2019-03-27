@@ -31,9 +31,9 @@ namespace nba_fixture
                     {   
                         ID = gameID,
                         Date = data[1],
-                        HomeTeam = data[3],
-                        AwayTeam = data[4],
-                        Stadium = data[2],
+                        HomeTeam = data[2],
+                        AwayTeam = data[3],
+          
                     };
                     game.Add(matchUp);
                 }
@@ -46,7 +46,7 @@ namespace nba_fixture
             string csvfile = "";
             foreach (Matchup game in MatchupResults)
             {
-                csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Stadium + "," + game.Result + "\n";
+                csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Stadium + "\n";
             }
 
             using (var writer = new StreamWriter(@"../../nbaData/nba_datasetTEST.csv"))
