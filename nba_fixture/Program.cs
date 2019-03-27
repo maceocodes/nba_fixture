@@ -35,11 +35,10 @@ namespace nba_fixture
 
                 foreach (var matchup in matchups)
                 {
-                    if (gameIDParsed == matchup.ID)
+                    if (matchup.ID == gameIDParsed)
                     {
                         notInList = false;
-                        var userSelection = matchups.First(g => g.ID == gameIDParsed);
-                        Console.WriteLine(userSelection);
+                        matchup.printMatchups();
                         break;
                     }
                     else
