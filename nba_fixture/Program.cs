@@ -22,11 +22,12 @@ namespace nba_fixture
             Console.WriteLine("Type a number corresponding to the matchup you want to select and hit enter to edit");
             
             int gameIDParsed;
+            //confirm that user input is a number represented in the list
             bool notAnInt = true;
             bool notInList = true;
             while (notAnInt || notInList)
             {
-                var userInput = Console.ReadLine();
+                var userInput = Console.ReadLine(); //initial user input
                 notAnInt = !int.TryParse(userInput, out gameIDParsed);
                 if (notAnInt)
                 {
@@ -41,7 +42,7 @@ namespace nba_fixture
                         matchup.printMatchup();
                         Console.WriteLine("Who's gonna win this game?");
                         var userResultInput = Console.ReadLine();
-                        matchup.Result = userResultInput;
+                        matchup.Result = userResultInput; //stores user 2nd input into the result column
                         matchup.printMatchup();
                         execute.WriteGameResults(matchups);
                         Console.WriteLine("Entry saved successfully");

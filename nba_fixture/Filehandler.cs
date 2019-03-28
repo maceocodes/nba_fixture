@@ -21,10 +21,11 @@ namespace nba_fixture
                     var line = reader.ReadLine();
                     var data = line.Split(',');
 
+                    //Confirm that ID field always contains a number
                     int gameID = 0;
                     if (Int32.TryParse(data[0], out gameID) ==false)
                     {
-                        Console.WriteLine("Invalid game ID");
+                        Console.WriteLine("Game ID must be a number");
                         return new List<Matchup>();
                     }
                         var matchUp = new Matchup
@@ -42,7 +43,8 @@ namespace nba_fixture
             return game;
         }
 
-        public void WriteGameResults(List<Matchup> MatchupResults) //Writes and saves data back to the database
+        //Method used to write the data back to the file
+        public void WriteGameResults(List<Matchup> MatchupResults) 
         {
             string csvfile = "gameID, Date, Home, Away, Result \n"; 
             foreach (Matchup game in MatchupResults)
@@ -50,8 +52,8 @@ namespace nba_fixture
                 csvfile += game.ID.ToString() + "," + game.Date + "," + game.HomeTeam + "," + game.AwayTeam + "," + game.Result + "\n";
             }
 
-            using (var writer = new StreamWriter(@"../../nbaData/nbaResults.csv")) //Writes the data to a new file
             {
+                using (var writer = new StreamWriter(@"../../nbaData/nbaResults.csv")) 
                 writer.Write(csvfile);
             }  
         }

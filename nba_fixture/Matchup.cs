@@ -8,6 +8,7 @@ using System.Configuration;
 
 namespace nba_fixture
 {
+    //Class that models data in the list
     public class Matchup
     {
         public string Date { get; set; }
