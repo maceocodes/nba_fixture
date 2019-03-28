@@ -1,7 +1,7 @@
 # nba_fixture
 CodeLou C# final
 
-This is a final project created initially for the Code Lou C# course.  It's still a WIP but does meet all of the C# course final 
+This is a final project created initially for the Code Lou C# course.  It's still a WIP but it does meet all of the C# course final 
 project requirements.
 
 -To run the application pull the GitHub repository to your local machine
