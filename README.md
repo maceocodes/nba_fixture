@@ -1,8 +1,6 @@
 # nba_fixture
-CodeLou C# final
 
-This is a final project created initially for the Code Lou C# course.  It's still a WIP but it does meet all of the C# course final 
-project requirements.
+This is a project meant to demonstrate and exercise  my C#/.NET skills.  It's still a WIP but at this point you can select a matchup from a list of season matchups and enter and save a predicted winner.
 
 -To run the application pull the GitHub repository to your local machine
 
